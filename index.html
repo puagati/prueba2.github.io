@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duna — Border Collie</title>
+  <meta name="description" content="Página simple en HTTPS que muestra una foto de un Border Collie y el texto 'Duna'." />
+  <style>
+    :root{
+      --bg:#0b1020; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1000px 600px at 80% -10%, rgba(96,165,250,.12), transparent),
+                  radial-gradient(900px 500px at -10% 100%, rgba(20,184,166,.10), transparent),
+                  var(--bg);
+      color:var(--text); display:grid; place-items:center; padding:24px;
+    }
+    .card{width:min(920px,95vw); padding:22px; border-radius:22px; background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09); box-shadow:0 12px 48px rgba(0,0,0,.35); backdrop-filter:blur(8px)}
+    h1{margin:12px 0 0; text-align:center; font-size:clamp(28px,5vw,44px); letter-spacing:.3px}
+    .subtitle{margin:6px 0 14px; text-align:center; color:var(--muted)}
+    .img-wrap{position:relative; border-radius:18px; overflow:hidden; background:#0f172a; border:1px solid rgba(255,255,255,.08)}
+    img{display:block; width:100%; height:auto}
+    figure{margin:0}
+    figcaption{font-size:12px; color:var(--muted); text-align:center; margin-top:8px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>Duna</h1>
+    <p class="subtitle">Border Collie</p>
+    <figure>
+      <div class="img-wrap">
+        <!-- Imagen aleatoria de un Border Collie desde Unsplash, siempre HTTPS -->
+        <img src="https://source.unsplash.com/featured/?border-collie" alt="Foto de un perro Border Collie" loading="lazy" />
+      </div>
+      <figcaption>Imagen de <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a> (puede variar en cada carga).</figcaption>
+    </figure>
+  </main>
+</body>
+</html>
