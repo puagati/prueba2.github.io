@@ -3,40 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Duna — Border Collie</title>
-  <meta name="description" content="Página simple en HTTPS que muestra una foto de un Border Collie y el texto 'Duna'." />
+  <title>holi</title>
+  <meta name="description" content="Página a pantalla completa con foto de fondo y el texto 'holi' superpuesto." />
   <style>
     :root{
-      --bg:#0b1020; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa;
+      --overlay: rgba(0,0,0,.35); /* oscurece un poco la foto para que se lea el texto */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1000px 600px at 80% -10%, rgba(96,165,250,.12), transparent),
-                  radial-gradient(900px 500px at -10% 100%, rgba(20,184,166,.10), transparent),
-                  var(--bg);
-      color:var(--text); display:grid; place-items:center; padding:24px;
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:#ffffff;
     }
-    .card{width:min(920px,95vw); padding:22px; border-radius:22px; background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09); box-shadow:0 12px 48px rgba(0,0,0,.35); backdrop-filter:blur(8px)}
-    h1{margin:12px 0 0; text-align:center; font-size:clamp(28px,5vw,44px); letter-spacing:.3px}
-    .subtitle{margin:6px 0 14px; text-align:center; color:var(--muted)}
-    .img-wrap{position:relative; border-radius:18px; overflow:hidden; background:#0f172a; border:1px solid rgba(255,255,255,.08)}
-    img{display:block; width:100%; height:auto}
-    figure{margin:0}
-    figcaption{font-size:12px; color:var(--muted); text-align:center; margin-top:8px}
+    .hero{
+      position:relative; min-height:100vh; width:100%;
+      display:grid; place-items:center; text-align:center;
+      /* ✅ Cambia la URL de abajo por tu foto concreta.
+         - Si la subes al repo, por ejemplo a /img/mi-foto.jpg usa: url('img/mi-foto.jpg')
+         - También puedes poner una URL HTTPS externa. */
+      background-image: linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.35)),
+                        url('https://plus.unsplash.com/premium_photo-1710965560034-778eedc929ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFpc2FqZSUyMGRlJTIwY29sb3Jlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000');
+      background-size: cover;       /* que cubra toda la pantalla */
+      background-position: center;  /* centrada */
+      background-repeat: no-repeat; /* sin repetir */
+    }
+    .scrim{position:absolute; inset:0; background:var(--overlay)}
+    h1{
+      position:relative; z-index:1; margin:0; padding:24px 18px;
+      font-size:clamp(42px, 10vw, 120px); letter-spacing:.5px; font-weight:800;
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    /* Botón opcional para volver arriba / CTA (no necesario, se deja de muestra) */
+    .cta{position:relative; z-index:1; margin-top:10px; display:inline-block; padding:10px 16px; border-radius:999px; backdrop-filter: blur(6px);
+      background: rgba(255,255,255,.12); color:#fff; text-decoration:none; font-weight:600; border:1px solid rgba(255,255,255,.28)}
+    .cta:focus{outline:2px solid rgba(255,255,255,.7); outline-offset:2px}
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>Duna</h1>
-    <p class="subtitle">Border Collie</p>
-    <figure>
-      <div class="img-wrap">
-        <!-- Imagen aleatoria de un Border Collie desde Unsplash, siempre HTTPS -->
-        <img src="https://source.unsplash.com/featured/?border-collie" alt="Foto de un perro Border Collie" loading="lazy" />
-      </div>
-      <figcaption>Imagen de <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a> (puede variar en cada carga).</figcaption>
-    </figure>
-  </main>
+  <section class="hero" role="img" aria-label="Fondo con imagen personalizada">
+    <div class="scrim" aria-hidden="true"></div>
+    <h1>holi</h1>
+    <!-- <a class="cta" href="#" aria-label="Botón opcional">Botón opcional</a> -->
+  </section>
 </body>
 </html>
